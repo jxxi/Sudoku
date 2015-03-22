@@ -45,3 +45,17 @@ Temporary Items
 sudoku.iml
 *.name
 *.class
+*.properties
+.gradle/2.2.1/taskArtifacts/fileHashes.bin
+*.lock
+.gradle/2.2.1/taskArtifacts/fileSnapshots.bin
+*.bin
+*.ser
+build/reports/cobertura/css/help.css
+*.css
+*.html
+build/reports/cobertura/images/blank.png
+*.png
+*.js
+build/test-results/binary/test/output.bin.idx
+build/tmp/test/jar_extract_5529064269609437264_tmp

@@ -1,0 +1,32 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "net.saliman:gradle-cobertura-plugin:2.2.7"
+    }
+}
+
+plugins {
+  id 'net.saliman.cobertura' version '2.2.7'
+}
+
+apply plugin: 'groovy'
+apply plugin: 'net.saliman.cobertura'
+
+sourceSets.main.groovy.srcDirs = ['src']
+sourceSets.test.groovy.srcDirs = ['test']
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	compile 'org.codehaus.groovy:groovy-all:2.3.6'
+
+	testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+
+  testRuntime group: 'org.slf4j', name: 'slf4j-api', version: '1.7.10'
+} 
+
+defaultTasks 'clean', 'cobertura'
