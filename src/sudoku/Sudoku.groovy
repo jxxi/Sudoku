@@ -1,0 +1,4 @@
+package sudoku
+
+class Sudoku {
+}
