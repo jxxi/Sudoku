@@ -16,12 +16,6 @@ class SudokuTest extends Specification{
         true
     }
 
-    def "placeNumber places a valid number at a valid specified position"(){
-        sudoku.placeNumber(1, 0, 0)
-        expect:
-        sudoku.sudokuBoard[0][0] == 1
-    }
-
     def "checkEntry throws IllegalArgumentException if entry is not between 0 and 9 and the entry is not placed on board"(){
         when:
         sudoku.checkEntry(-1, 0, 0)
@@ -52,4 +46,23 @@ class SudokuTest extends Specification{
         thrown ArrayIndexOutOfBoundsException
     }
 
+    def "placeNumber places a valid number at a valid specified position"(){
+        sudoku.placeNumber(1, 0, 0)
+        expect:
+        sudoku.sudokuBoard[0][0] == 1
+    }
+
+    def "clearPosition clears a position on the board at a valid position"(){
+        sudoku.placeNumber(1, 0, 0)
+        sudoku.clearPosition(0, 0)
+        expect:
+        sudoku.sudokuBoard[0][0] == null
+    }
+
+    def "clearPosition leaves an already empty position empty"(){
+        sudoku.sudokuBoard[0][0] = null
+        sudoku.clearPosition(0, 0)
+        expect:
+        sudoku.sudokuBoard[0][0] == null
+    }
 }

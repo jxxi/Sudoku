@@ -13,11 +13,16 @@ class Sudoku {
         sudokuBoard[row][column] = entry
     }
 
+    def clearPosition(def row, def column){
+        checkEntry(0, row, column)
+        sudokuBoard[row][column] = null
+    }
+
     def checkEntry(def entry, def row, def column){
         if(entry instanceof String || entry < 0 || entry > 9)
             throw new IllegalArgumentException()
 
-        else if(row < 0 || row > 9 || column < 0 || column > 9)
+        if(row < 0 || row > 9 || column < 0 || column > 9)
             throw new ArrayIndexOutOfBoundsException()
     }
 }
