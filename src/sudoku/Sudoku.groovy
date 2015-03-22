@@ -15,7 +15,7 @@ class Sudoku {
 
         checkEntry(entry, row, column)
         sudokuBoard[row][column] = entry
-        checkPositionLogic(entry, row, column)
+        checkEntryLogic(entry, row, column)
     }
 
     def clearPosition(def row, def column){
@@ -32,8 +32,13 @@ class Sudoku {
             throw new ArrayIndexOutOfBoundsException()
     }
 
-    def checkPositionLogic(def entry, def row, def column){
+    def checkEntryLogic(def entry, def row, def column){
+        checkRowLogic(entry, row, column)
+        checkColumnLogic(entry, row, column)
+        checkBoxLogic(entry, row, column)
+    }
 
+    def checkRowLogic(def entry, def row, def column){
         for(i in 0..row){
             if(sudokuBoard[i][column] == entry)
                 if(i != row ) {
@@ -41,7 +46,9 @@ class Sudoku {
                     return
                 }
         }
+    }
 
+    def checkColumnLogic(def entry, def row, def column){
         for(i in 0..column){
             if(sudokuBoard[row][i] == entry)
                 if(i != column ) {
@@ -49,7 +56,17 @@ class Sudoku {
                     return
                 }
         }
+    }
 
+    def checkBoxLogic(def entry, def row, def column){
+        for (int i = row - 3; i < row; i++) {
+            for (int j = column - 3; j < column; j++) {
+                if(sudokuBoard[i][j] == entry && (i != row && j!= column)) {
+                    logicalBoard[row][column] = false
+                    return
+                }
+            }
+        }
         logicalBoard[row][column] = true
     }
 }

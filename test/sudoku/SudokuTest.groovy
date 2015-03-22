@@ -66,24 +66,25 @@ class SudokuTest extends Specification{
         sudoku.sudokuBoard[0][0] == null
     }
 
-    def "checkPositionLogic sets a position in logicalBoard to false if the number entered is repeated in row"(){
+    def "checkColumnLogic sets a position in logicalBoard to false if the number entered is repeated in column"(){
         sudoku.sudokuBoard[0][0] = 1
-        sudoku.checkPositionLogic(1, 0, 1)
+        sudoku.checkColumnLogic(1, 0, 1)
         expect:
         sudoku.logicalBoard[0][1] == false
     }
 
-    def "checkPositionLogic sets a position in logicalBoard to false if the number entered is repeated in column"(){
+    def "checkRowLogic sets a position in logicalBoard to false if the number entered is repeated in row"(){
         sudoku.sudokuBoard[0][0] = 1
-        sudoku.checkPositionLogic(1, 1, 0)
+        sudoku.checkRowLogic(1, 1, 0)
         expect:
         sudoku.logicalBoard[1][0] == false
     }
 
-    def "checkPositionLogic sets a position in logicalBoard to false if the number entered is repeated in the same square"(){
-        sudoku.sudokuBoard[0][0] = 1
-        sudoku.checkPositionLogic(1, 1, 2)
+    def "checkBoxLogic sets a position in logicalBoard to false if the number entered is repeated within the same square"(){
+        sudoku.sudokuBoard[3][3] = 1
+        sudoku.sudokuBoard[4][4] = 1
+        sudoku.checkBoxLogic(1, 4, 4)
         expect:
-        sudoku.logicalBoard[1][2] == false
+        sudoku.logicalBoard[4][4] == false
     }
 }
