@@ -59,14 +59,13 @@ class Sudoku {
     }
 
     def checkBoxLogic(def entry, def row, def column){
-        for (int i = row - 3; i < row; i++) {
-            for (int j = column - 3; j < column; j++) {
+        for (i in row - 3..row) {
+            for (j in column - 3..column) {
                 if(sudokuBoard[i][j] == entry && (i != row && j!= column)) {
                     logicalBoard[row][column] = false
                     return
                 }
             }
         }
-        logicalBoard[row][column] = true
     }
 }
