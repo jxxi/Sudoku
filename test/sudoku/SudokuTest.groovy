@@ -87,13 +87,4 @@ class SudokuTest extends Specification{
         expect:
         sudoku.logicalBoard[4][4] == false
     }
-
-    def "initializeBoard sets 36 random positions as numbers from 0-9"(){
-        sudoku.sudokuBoard[3][3] = 1
-        sudoku.sudokuBoard[4][4] = 1
-        sudoku.checkBoxLogic(1, 4, 4)
-        expect:
-        sudoku.logicalBoard[4][4] == false
-    }
-
 }

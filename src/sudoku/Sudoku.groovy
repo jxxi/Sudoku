@@ -11,6 +11,10 @@ class Sudoku {
             Arrays.fill(row, true)
     }
 
+    def initializeBoard(){
+
+    }
+
     def placeNumber(def entry, def row, def column){
 
         checkEntry(entry, row, column)
