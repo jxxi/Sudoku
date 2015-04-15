@@ -3,11 +3,11 @@ package sudoku
 class Sudoku {
     def sudokuBoard, logicalBoard
 
-    Sudoku(){
+    Sudoku() {
         sudokuBoard = new Object[9][9]
         logicalBoard = new Boolean[9][9]
 
-        for(Boolean[] row: logicalBoard)
+        for (Boolean[] row : logicalBoard)
             Arrays.fill(row, true)
     }
 
@@ -67,5 +67,28 @@ class Sudoku {
                 }
             }
         }
+    }
+
+    def initializeBoard(){
+        sudokuBoard[0][0] = 6
+        sudokuBoard[0][2] = 8
+        sudokuBoard[0][5] = 5
+        sudokuBoard[1][0] = 3
+        sudokuBoard[1][2] = 1
+        sudokuBoard[1][8] = 7
+        sudokuBoard[2][7] = 1
+        sudokuBoard[4][0] = 9
+        sudokuBoard[4][1] = 1
+        sudokuBoard[4][3] = 5
+        sudokuBoard[4][5] = 3
+        sudokuBoard[4][7] = 8
+        sudokuBoard[4][8] = 4
+        sudokuBoard[6][1] = 2
+        sudokuBoard[7][0] = 5
+        sudokuBoard[7][6] = 4
+        sudokuBoard[7][8] = 9
+        sudokuBoard[8][3] = 3
+        sudokuBoard[8][6] = 5
+        sudokuBoard[8][8] = 8
     }
 }
