@@ -87,4 +87,8 @@ class SudokuTest extends Specification{
         expect:
         sudoku.logicalBoard[4][4] == false
     }
+
+    def "initializeBoard initializes the starting board for the user"(){
+        expect:
+    }
 }
