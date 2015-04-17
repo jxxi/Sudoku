@@ -69,6 +69,14 @@ class Sudoku {
         }
     }
 
+    def isFull(){
+        for(i in 0..9)
+            if (sudokuBoard[i].length < 10)
+                return false
+
+        true
+    }
+
     def initializeBoard(){
         sudokuBoard[0][0] = 6
         sudokuBoard[0][2] = 8
