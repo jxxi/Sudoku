@@ -70,9 +70,25 @@ class Sudoku {
     }
 
     def isFull(){
-        for(i in 0..9)
+
+        for(i in 0..8)
             if (sudokuBoard[i].length < 10)
                 return false
+
+        true
+    }
+
+    def userWon(){
+
+        if(!isFull())
+            return false;
+
+        for(row in 0..8) {
+            for (column in 0..8) {
+                if (!logicalBoard[row][column])
+                    return false;
+            }
+        }
 
         true
     }
