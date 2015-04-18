@@ -88,17 +88,15 @@ class SudokuTest extends Specification{
         sudoku.logicalBoard[4][4] == false
     }
 
-    def "initializeBoard initializes the starting board for the user"(){
-        expect:
-        sudoku.initializeBoard()
-
     def "isFull returns false if sudokuBoard is not full"(){
         sudoku.initializeBoard()
         expect:
         !sudoku.isFull()
     }
 
+    def "userWon returns false if the user did not win"(){
         sudoku.initializeBoard()
         expect:
+        !sudoku.userWon()
     }
 }
